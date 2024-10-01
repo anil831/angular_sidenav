@@ -1,0 +1,56 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 class="example-app-name">Responsive App</h1>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           >
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <span *ngFor="let item of menu">
+
+            <span *ngIf="item.children && item.children.length > 0">
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div fxLayout="row" fxLayoutAlign="start center" class="flex-item"> 
+                        <mat-icon>{{item.iconName}}</mat-icon>
+                        {{item.displayName}}
+                      </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <span *ngFor="let child of item.children">
+                    <mat-list-item [routerLink]="[child.route]" routerLinkActive="active-link" >
+                      <div fxLayout="row" fxLayoutAlign="start center" class="flex-item"> 
+                        <mat-icon>{{child.iconName}}</mat-icon>
+                        {{child.displayName}}
+                      </div>
+                    </mat-list-item>
+                  </span>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </span>
+
+            <span *ngIf="!item.children || item.children.length === 0">
+              <mat-list-item [routerLink]="[item.route]" routerLinkActive="active-link" >
+                <div fxLayout="row" fxLayoutAlign="start center" class="flex-item">
+                  <mat-icon>{{item.iconName}}</mat-icon>
+                  {{item.displayName}}
+                </div>
+              </mat-list-item>
+            </span>
+            
+          </span>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,14 @@
+  mat-grid-list {
+    width: 100%; /* Ensure grid takes full width */
+    /* max-width: 1200px; */
+  }
+  
+  .card-container {
+    width: 98%;
+    margin: 10px; /* Gap between cards */
+  }
+  
+  :host ::ng-deep canvas.ng-star-inserted{
+    width: 100% !important;
+    height: 100% !important;
+}

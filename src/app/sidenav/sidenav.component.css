@@ -1,0 +1,58 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  /* Set height to full viewport */
+  /* overflow: hidden;  */
+}
+
+.mat-drawer-container {
+  background-color: aliceblue;
+  height: 100%; /* Ensure it takes full height */
+}
+
+.example-sidenav-container {
+  flex: 1;
+  height: 100%; /* Ensure full height */
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* flex: 1 0 auto; */
+  height: auto; /* Allow auto height for mobile */
+}
+
+:host ::ng-deep.mat-drawer-inner-container{
+  overflow: hidden !important;
+}
+.mat-drawer {
+  height: 100%; /* Ensure sidenav takes full height */
+}
+
+.mat-list-base {
+  padding-top: 1px !important;
+}
+
+.mat-expansion-panel {
+  border-radius: 0px !important;
+}
+
+  .mat-list-item:hover, .mat-expansion-panel-header:hover{
+    background-color: #673AB7 !important;
+    color: #FFF !important;
+
+  }
+
+  .mat-expansion-panel-header:hover .mat-expansion-panel-header-title{
+    background-color: #673AB7 !important;
+
+    color: #FFF !important;
+  }
+
+  
+  .flex-item {
+    gap: 4px ;
+  }
+  .mat-list-base{
+    padding-top: 1px !important;
+  }

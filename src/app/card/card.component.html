@@ -1,0 +1,18 @@
+<mat-card class="card" [ngClass]="{'shiny': CardItem?.shiny,'chart': CardItem?.['chart']}">
+    <mat-card-header *ngIf="CardItem?.headerImg || CardItem?.title || CardItem?.subtitle" class="card-header" [style]="{'height':CardItem?.headerHeight}">
+      <div *ngIf="CardItem?.headerImg" mat-card-avatar class="header-image" [style.background-image]="'url(' + CardItem?.headerImg + ')'"></div>
+      <mat-card-title *ngIf="CardItem?.title">{{CardItem?.title}}</mat-card-title>
+      <mat-card-subtitle *ngIf="CardItem?.subtitle">{{CardItem?.subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="CardItem?.cardImg" mat-card-image [src]="CardItem?.cardImg" alt="Photo of a Shiba Inu">
+    <mat-card-content class="dashboard-card-content">
+        <ng-content></ng-content>
+    </mat-card-content>
+    <div *ngIf="CardItem?.actions;then thenBlock;"></div>
+    <ng-template #thenBlock>
+        <mat-card-actions *ngFor="let action of CardItem?.actions">
+            <button mat-button>{{action}}</button>
+        </mat-card-actions>
+    </ng-template>
+</mat-card>
+  

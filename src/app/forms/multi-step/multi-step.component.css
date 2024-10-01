@@ -1,0 +1,98 @@
+
+.signup-container {
+    background: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px #b8b8b8, -8px -8px 16px #ffffff;
+    padding: 1rem; 
+    width: 90%; 
+    max-width: 350px; 
+    margin: 20px auto; 
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    color: #673AB7;
+    font-size: 1.5rem; 
+    margin-bottom: 1rem;
+}
+
+.neumorphic-field {
+    background: #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #ffffff;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    height: auto;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button {
+    margin-top: 12px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px #b8b8b8, -4px -4px 8px #ffffff;
+    transition: box-shadow 0.2s;
+    width: 100%; 
+    padding: 0.5rem; 
+}
+
+button:hover {
+    box-shadow: 2px 2px 4px #b8b8b8, -2px -2px 4px #ffffff;
+}
+
+.password-criteria {
+    text-align: left;
+    margin-top: 0.5rem; 
+}
+
+.password-criteria div {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.password-criteria .error {
+    color: #f44336; 
+}
+
+.check_circle {
+    color: green;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    cursor: pointer;
+    font-size: 20px; 
+    color: #673AB7; 
+    transition: color 0.2s;
+}
+
+.back-arrow:hover {
+    color: #007bff; 
+}
+
+
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 0.5rem; 
+    }
+
+    h2 {
+        font-size: 1.2rem; 
+    }
+
+    button {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .back-arrow {
+        font-size: 18px; 
+    }
+    
+}

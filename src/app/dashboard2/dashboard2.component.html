@@ -1,0 +1,51 @@
+<mat-grid-list cols="{{ (chartLayout | async)?.columns }}" rowHeight="220px">
+    
+    <mat-grid-tile [colspan]="(chartLayout | async)?.chart?.columnSpan" [rowspan]="(chartLayout | async)?.chart?.rowSpan">
+      <div class="card-container">
+        <app-card [CardItem]="{ chart: true }">
+            <canvas baseChart width="350" height="350"
+              [type]="'line'"
+              [data]="lineChartData"
+              [options]="lineChartOptions"
+              [legend]="lineChartLegend">
+            </canvas>
+          
+        </app-card>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="(chartLayout | async)?.chart?.columnSpan" [rowspan]="(chartLayout | async)?.chart?.rowSpan">
+      <div class="card-container">
+        <app-card [CardItem]="{ chart: true }">
+
+          <canvas baseChart width="350" height="350"
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas>
+
+        </app-card>
+      </div>
+    </mat-grid-tile>
+    
+    <mat-grid-tile [colspan]="(chartLayout | async)?.chart?.columnSpan" [rowspan]="(chartLayout | async)?.chart?.rowSpan">
+      <div class="card-container">
+        <app-card [CardItem]="{ chart: true }">
+
+          <canvas baseChart width="350" height="350"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [type]="'bar'">
+  </canvas>
+  
+
+        </app-card>
+      </div>
+    </mat-grid-tile>
+</mat-grid-list>
+

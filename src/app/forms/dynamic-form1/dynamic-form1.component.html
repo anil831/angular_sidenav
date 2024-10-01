@@ -1,0 +1,199 @@
+<!-- <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" required>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" required>
+    </div>
+  
+    <div *ngIf="employmentDetails.controls.length" formArrayName="employmentDetails">
+      <h3>Employment Details</h3>
+      <div *ngFor="let employment of employmentDetails.controls; let i = index" [formGroupName]="i">
+        <div>
+          <label for="companyName">Company Name:</label>
+          <input id="companyName" formControlName="companyName" required>
+        </div>
+  
+        <div>
+          <label for="jobTitle">Job Title:</label>
+          <input id="jobTitle" formControlName="jobTitle" required>
+        </div>
+  
+        <div>
+          <label for="startDate">Start Date:</label>
+          <input id="startDate" type="date" formControlName="startDate" required>
+        </div>
+  
+        <div>
+          <label for="endDate">End Date:</label>
+          <input id="endDate" type="date" formControlName="endDate" required>
+        </div>
+  
+        <button type="button" (click)="removeEmployment(i)">Remove Employment</button>
+      </div>
+    </div>
+  
+    <button type="button" (click)="addEmployment()">Add Employment</button>
+    <button type="submit" [disabled]="personalDetailsForm.invalid">Submit</button>
+</form> -->
+<!-- 
+<div class="container">
+  <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" formControlName="name" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="email" formControlName="email" />
+      </div>
+    </div>
+
+    <div *ngIf="employmentDetails.controls.length" formArrayName="employmentDetails" class="employment-form">
+      <h3>Employment Details</h3>
+      
+      <div *ngFor="let employment of employmentDetails.controls; let i=index;" [formGroupName]="i" [@formAnimation]>
+        <div class="row">
+          <button type="button" (click)="removeEmployment(i)" fxLayout="row" fxLayoutAlign="center center">
+            <span>Remove Employment</span><mat-icon>do_not_disturb_on</mat-icon>
+          </button>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="companyName">Company Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="companyName" formControlName="companyName" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="jobTitle">Job Title</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="jobTitle" formControlName="jobTitle" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="startDate">Start Date</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="startDate" formControlName="startDate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="endDate">End Date</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="endDate" formControlName="endDate">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="button" (click)="addEmployment()" fxLayout="row" fxLayoutAlign="center center">
+        <span>Add Employment</span><mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+    
+    <div class="row">
+      <button type="submit" [disabled]="personalDetailsForm.invalid">Submit</button>
+    </div>
+  </form>
+</div> -->
+
+<div class="container">
+  <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" formControlName="name" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="email" formControlName="email" />
+      </div>
+    </div>
+
+    <div formArrayName="employmentDetails" class="employment-form">
+      <h3 *ngIf="employmentDetails.controls.length">Employment Details</h3>
+
+      <div *ngFor="let employment of employmentDetails.controls; let i=index;" [formGroupName]="i" [@formAnimation]>
+        <div class="row">
+          <button type="button" (click)="removeEmployment(i)" fxLayout="row" fxLayoutAlign="center center">
+            <span>Remove Employment</span><mat-icon>do_not_disturb_on</mat-icon>
+          </button>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="companyName">Company Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="companyName" formControlName="companyName" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="jobTitle">Job Title</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="jobTitle" formControlName="jobTitle" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="startDate">Start Date</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="startDate" formControlName="startDate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="endDate">End Date</label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="endDate" formControlName="endDate">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="button" (click)="addEmployment()" fxLayout="row" fxLayoutAlign="center center">
+        <span>Add Employment</span><mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+    
+    <div class="row">
+      <button type="submit" [disabled]="personalDetailsForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>

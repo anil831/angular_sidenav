@@ -1,0 +1,71 @@
+<div class="signup-container" [ngSwitch]="step">
+          <!-- Back Arrow Icon -->
+          <mat-icon *ngIf="step === 2" class="back-arrow" (click)="back()">arrow_back</mat-icon>
+
+    <h2>Signup Form</h2>
+    
+    <form *ngSwitchCase="1" [formGroup]="signupForm">
+        <div class="neumorphic-field">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">
+                    <span class="error" *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</span>
+                    <span class="error" *ngIf="signupForm.get('email')?.errors?.['pattern']">Invalid email format.</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <button mat-raised-button color="primary" (click)="next()" [disabled]="signupForm.get('email')?.invalid">
+                Next
+            </button>
+        </div>
+    </form>
+
+    <form *ngSwitchCase="2" [formGroup]="signupForm">
+        <div class="neumorphic-field">
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" (input)="checkPasswordCriteria()" />
+                <mat-error *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
+                    <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required.</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="password-criteria" *ngIf="signupForm.get('password')?.invalid && !signupForm.get('password')?.errors?.['required']">
+            <div [class.error]="!checkPasswordCriteria().lowercase">
+                <mat-icon class="check_circle" *ngIf="checkPasswordCriteria().lowercase">check_circle</mat-icon>
+                <mat-icon *ngIf="!checkPasswordCriteria().lowercase" color="warn">cancel</mat-icon>
+                At least one lowercase letter
+            </div>
+            <div [class.error]="!checkPasswordCriteria().uppercase">
+                <mat-icon class="check_circle" *ngIf="checkPasswordCriteria().uppercase">check_circle</mat-icon>
+                <mat-icon *ngIf="!checkPasswordCriteria().uppercase" color="warn">cancel</mat-icon>
+                At least one uppercase letter
+            </div>
+            <div [class.error]="!checkPasswordCriteria().digit">
+                <mat-icon class="check_circle" *ngIf="checkPasswordCriteria().digit">check_circle</mat-icon>
+                <mat-icon *ngIf="!checkPasswordCriteria().digit" color="warn">cancel</mat-icon>
+                At least one digit
+            </div>
+            <div [class.error]="!checkPasswordCriteria().specialChar">
+                <mat-icon class="check_circle" *ngIf="checkPasswordCriteria().specialChar">check_circle</mat-icon>
+                <mat-icon *ngIf="!checkPasswordCriteria().specialChar" color="warn">cancel</mat-icon>
+                At least one special character
+            </div>
+            <div [class.error]="!checkPasswordCriteria().length">
+                <mat-icon class="check_circle" *ngIf="checkPasswordCriteria().length">check_circle</mat-icon>
+                <mat-icon *ngIf="!checkPasswordCriteria().length" color="warn">cancel</mat-icon>
+                Length between 8 and 128 characters
+            </div>
+        </div>
+
+        <div>
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="signupForm.get('password')?.invalid">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>

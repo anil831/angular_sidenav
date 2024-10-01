@@ -1,0 +1,22 @@
+<div style="padding: 20px;"> <!-- Overall padding -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <div *ngFor="let cardItem of cardItems" style="flex: 1 1 calc(16.66% - 20px);">
+        <app-card [CardItem]="cardItem">
+          <p style="text-align: center; font-size: 28px;">
+            <b>{{cardItem['noOfUsers']}}</b>
+          </p>
+        </app-card>
+      </div>
+    </div>
+  
+    <div style="margin-top: 20px;" class="large-card-container">
+      <app-card [CardItem]="largeCard">
+        <p style="text-align: center; font-size: 18px;margin: 0;">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab nobis eius quos doloremque suscipit nulla, eaque iste quisquam doloribus odit libero dolor debitis cum omnis facilis sit voluptate. Consectetur, blanditiis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id veritatis aut distinctio. Maxime iusto illo nemo nihil molestias itaque, facilis veniam? Tenetur delectus nihil labore, dolores vel laborum molestias. Illo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quisquam nisi distinctio pariatur quis quasi maxime, reprehenderit non esse praesentium nobis exercitationem repellat architecto ut ipsam eius totam iusto magni?
+        </p>
+      </app-card>
+    </div>
+  </div>
+  
